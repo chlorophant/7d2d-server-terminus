@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  sevend2d:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080/tcp
+      - 8081:8081/tcp
+      - 8082:8082/tcp
+      - 26900:26900/tcp
+      - 26900:26900/udp
+      - 26901:26901/udp
+      - 26902:26902/udp
+    volumes:
+      - /opt/sevend2d/world1/data:/home/sevend2d/server
+      - /opt/sevend2d/world1/saves:/home/sevend2d/.local/share/7DaysToDie/Saves
+    environment:
+      - SEVEND2D_SERVERNAME=Terminus
